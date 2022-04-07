@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-epam-prod-main
+  labels:
+    app   : nginx-epam
+    owners: ValentinKozlov
+    env   : prod
+    state : main
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app   : nginx-epam
+      owners: ValentinKozlov
+      env   : prod
+      state : main
+  template:
+    metadata:
+      labels:
+        app   : nginx-epam
+        owners: ValentinKozlov
+        env   : prod
+        state : main
+    spec:
+      containers:
+      - name : nginx-epam-lesson2
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html/index.html
+            subPath: index-main.html
+            name: nginx-main
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "200Mi"
+          requests:
+            cpu: "100m"
+            memory: "100Mi"
+      volumes:
+      - name: nginx-main
+        configMap:
+          name: nginx-main

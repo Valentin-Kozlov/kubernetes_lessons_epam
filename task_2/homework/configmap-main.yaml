@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  index-main.html: "<!DOCTYPE html>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html;
+    charset=utf-8\" />\r\n<html>\r\n    <head><font color=\"green\">MAIN</head>\r\n
+    \   <body bgcolor=\"black\">\r\n        <h2 align=\"center\"><font color=\"white\">Web
+    Server for my EPAM task</h2><br><p align=\"center\">\r\n        <font color=\"gold\">This
+    project has Canary Deployment. It's <font color=\"green\">MAIN<br><br>\r\n        
+    \       <h4 align=\"center\"><font color=\"green\">Created by Kozlov Valentin</h4>\r\n
+    \   </body>\r\n</html>"
+kind: ConfigMap
+metadata:
+  name: nginx-main
+  namespace: default
