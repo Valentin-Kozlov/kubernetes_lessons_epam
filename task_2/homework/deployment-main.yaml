@@ -8,7 +8,7 @@ metadata:
     env   : prod
     state : main
 spec:
-  replicas: 5
+  replicas: 7
   selector:
     matchLabels:
       app   : nginx-epam

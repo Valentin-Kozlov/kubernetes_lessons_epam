@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service-epam-prod
+  name: nginx-service-epam-prod-main
   labels:
     app   : nginx-epam
     owners: ValentinKozlov
     env   : prod
     state : main
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
-    app: nginx-epam
+    state: main
   ports:
     - protocol  : TCP
-      # port      : 8088
-      port: 80
+      port      : 80
+      targetPort: 80
